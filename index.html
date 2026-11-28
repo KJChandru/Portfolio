@@ -312,11 +312,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
       <div class="hl-tag">Angular · .NET</div>
     </div>
     <div class="tile c2 reveal">
-      <div class="t-title">300 MB File Downloads</div>
-      <div class="t-desc">Doubled capacity via optimized streaming.</div>
-      <div class="hl-tag">Performance</div>
-    </div>
-    <div class="tile c2 reveal">
       <div class="t-title">Excel Export Optimization</div>
       <div class="t-desc">Cut export time with tuned stored procedures.</div>
       <div class="hl-tag">SQL Server</div>
@@ -379,7 +374,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
         <span class="proj-open">Click for details →</span>
       </div>
       <div class="t-title" style="font-size:19px;">ImpactIQ — AI Change Impact Analysis</div>
-      <div class="proj-period"><span class="status-dot amber" style="display:inline-block;vertical-align:middle;margin-right:.4rem;"></span>2025 · Currently building (v2)</div>
+      <div class="proj-period"><span class="status-dot amber" style="display:inline-block;vertical-align:middle;margin-right:.4rem;"></span>2025 · V2 live · Currently building (V3 — IDE integration)</div>
       <div class="t-desc">Predicts the blast radius of a proposed code change before you write a line. Deterministic graph traversal establishes what provably depends on what; Claude only interprets — every prediction backed by traceable evidence.</div>
       <div class="pills"><span class="pill">Next.js 16</span><span class="pill">TypeScript</span><span class="pill">React 19</span><span class="pill">Claude API</span><span class="pill">Zod</span></div>
     </div>
@@ -434,26 +429,29 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
     </div>
 
     <div class="modal-body">
-      ImpactIQ is a developer tool that predicts the <b style="color:var(--text);font-weight:600;">blast radius of a proposed code change</b>. Describe a change in plain English and it analyzes the codebase's dependency graph to return the files and modules likely to be affected — each backed by concrete evidence — plus a risk assessment and recommended tests. It surfaces hidden and indirect dependencies <b style="color:var(--text);font-weight:600;">upfront</b>, before they become production regressions.
+      ImpactIQ is an AI-powered developer tool that predicts the <b style="color:var(--text);font-weight:600;">blast radius of a proposed code change</b>. Describe a feature in plain English and it analyzes the repository's dependency graph to return the files and modules likely to be affected — each backed by traceable code evidence — plus risk assessments and recommended tests.
     </div>
 
     <div class="modal-sub">What makes it different — evidence before AI claims</div>
-    <div class="modal-hl"><span class="dotm"></span><span><b>Deterministic facts, AI judgment</b> — graph traversal establishes what provably depends on what; the LLM only interprets and explains, sharply reducing hallucination.</span></div>
-    <div class="modal-hl"><span class="dotm"></span><span><b>Traceable evidence</b> — every prediction points to the exact file, symbol, import, or dependency path. If evidence is missing, it says so instead of inventing it.</span></div>
-    <div class="modal-hl"><span class="dotm"></span><span><b>Measured, not vibes</b> — an evaluation harness scores precision/recall against hand-labeled cases, so accuracy is a number.</span></div>
+    <div class="modal-hl"><span class="dotm"></span><span><b>Deterministic facts, AI judgment</b> — dependency graph traversal establishes code relationships; Claude only interprets and explains the impact.</span></div>
+    <div class="modal-hl"><span class="dotm"></span><span><b>Evidence-grounded</b> — findings are validated against actual repo files, symbols, and dependency paths, rejecting any fabricated references.</span></div>
+    <div class="modal-hl"><span class="dotm"></span><span><b>Measured accuracy</b> — an evaluation harness scores precision, recall, F1, and evidence coverage against test scenarios.</span></div>
 
-    <div class="modal-sub">Built so far (v1)</div>
-    <div class="modal-hl"><span class="dotm"></span><span>Architecture extraction from Mermaid diagrams, architecture images (Claude Vision), or SQL schemas.</span></div>
-    <div class="modal-hl"><span class="dotm"></span><span>Agentic impact analysis — a multi-pass loop where Claude calls deterministic graph tools (dependency tracing, cycle detection, blast-radius estimation, safe-deploy ordering).</span></div>
-    <div class="modal-hl"><span class="dotm"></span><span>Structured, Zod-validated impact reports: affected modules with severity, hidden dependencies, test checklists, deployment risks.</span></div>
+    <div class="modal-sub">Built so far (V2 — live)</div>
+    <div class="modal-hl"><span class="dotm"></span><span>Repository ingestion and AST-based dependency extraction via the TypeScript Compiler API, with graph construction for code-level impact analysis.</span></div>
+    <div class="modal-hl"><span class="dotm"></span><span>Multi-pass AI analysis using Claude with deterministic graph tools, plus evidence validation that rejects findings referencing nonexistent code.</span></div>
+    <div class="modal-hl"><span class="dotm"></span><span>Structured impact reports with severity, dependency paths, risk assessments, and recommended tests — plus interactive dependency visualization and report exports.</span></div>
 
-    <div class="modal-sub">Building now (v2 — real-code grounding)</div>
-    <div class="modal-hl"><span class="dotm"></span><span>Repository ingestion with safe, sandboxed indexing (never executes code) and an AST-based dependency graph via the TypeScript Compiler API.</span></div>
-    <div class="modal-hl"><span class="dotm"></span><span>Evidence-grounded analysis over a bounded codebase slice, with output validation that rejects any finding whose paths, symbols, or lines don't exist in the repo.</span></div>
+    <div class="modal-sub">Currently building (V3 — IDE integration)</div>
+    <div class="modal-hl"><span class="dotm"></span><span>A VS Code extension that analyzes the open project directly in the editor — index the repo once, describe a feature inside the extension, and view impacted files, evidence, risk levels, and recommended tests without leaving the IDE.</span></div>
 
     <div class="modal-sub">Tech Stack</div>
     <div class="pills" style="padding-top:0;">
-      <span class="pill">Next.js 16</span><span class="pill">TypeScript</span><span class="pill">React 19</span><span class="pill">Claude API</span><span class="pill">Zod</span><span class="pill">Zustand</span><span class="pill">Tailwind</span>
+      <span class="pill">Next.js 16</span><span class="pill">TypeScript</span><span class="pill">React 19</span><span class="pill">Claude API</span><span class="pill">TS Compiler API</span><span class="pill">Zod</span><span class="pill">Zustand</span><span class="pill">Tailwind</span><span class="pill">Vitest</span>
+    </div>
+
+    <div class="modal-actions">
+      <a href="https://impactiq-three.vercel.app/" target="_blank" class="btn-solid">Open Live Demo</a>
     </div>
   </div>
 </div>
